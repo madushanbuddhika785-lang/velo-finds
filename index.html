@@ -1,163 +1,273 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover useful products, trending finds and smart shopping picks with Velo Finds.">
-  <title>Velo Finds | Discover Your Next Favourite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover useful products and smart finds with Velo Finds.">
+  <title>Velo Finds | Smart Finds for Everyday Life</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #17233b;
       background: #f5f7fb;
+      color: #17233b;
     }
+
     header {
       background: #101c3a;
       color: white;
-      padding: 22px 7%;
+      padding: 22px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 15px;
     }
+
     .logo { font-size: 27px; font-weight: bold; }
     .logo span { color: #b8e64b; }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 18px;
+      margin-left: 15px;
       font-size: 14px;
     }
+
     .hero {
-      padding: 75px 7%;
+      padding: 65px 6%;
       background: linear-gradient(120deg, #101c3a, #254b80);
       color: white;
     }
-    .hero h1 { font-size: clamp(34px, 6vw, 58px); margin: 0 0 18px; }
-    .hero p { line-height: 1.7; max-width: 560px; color: #e2e9f5; }
+
+    .hero h1 { font-size: clamp(34px, 5vw, 54px); margin: 0 0 15px; }
+    .hero p { max-width: 600px; line-height: 1.8; color: #e2e9f5; }
+
     .hero a {
       display: inline-block;
+      margin-top: 15px;
+      padding: 13px 20px;
       background: #b8e64b;
       color: #101c3a;
-      padding: 13px 22px;
-      margin-top: 14px;
       text-decoration: none;
       border-radius: 7px;
       font-weight: bold;
     }
-    main { padding: 38px 7%; }
+
+    main { padding: 35px 6%; }
+
     .disclosure {
       background: #fff8dc;
-      padding: 14px;
+      padding: 16px;
       border-radius: 8px;
+      line-height: 1.7;
       font-size: 13px;
-      line-height: 1.6;
     }
-    .section-title { margin-top: 35px; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 20px 0;
+    }
+
+    .filters button {
+      border: 1px solid #d7dce5;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .filters button.active {
+      background: #101c3a;
+      color: white;
+    }
+
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 22px;
+      gap: 20px;
     }
+
     .card {
       background: white;
       border-radius: 12px;
-      padding: 23px;
+      padding: 22px;
       box-shadow: 0 4px 18px #17233b0c;
     }
+
     .emoji { font-size: 48px; }
-    .card h3 { margin-bottom: 8px; }
+    .category { color: #52688c; font-size: 12px; }
     .card p { color: #596579; line-height: 1.6; font-size: 14px; }
+
     .card a {
       display: inline-block;
       background: #101c3a;
       color: white;
-      padding: 11px 15px;
+      padding: 11px 14px;
       border-radius: 6px;
       text-decoration: none;
       font-size: 14px;
     }
-    .note { font-size: 12px; color: #68758a; margin-top: 12px; }
+
+    .coming {
+      background: #e8ebf1;
+      color: #4e5b70;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: inline-block;
+    }
+
+    .notice { font-size: 13px; color: #596579; }
+
     footer {
       background: #101c3a;
       color: white;
       text-align: center;
-      padding: 27px 7%;
-      font-size: 13px;
+      padding: 28px 6%;
       line-height: 1.8;
+      font-size: 13px;
     }
+
     footer a { color: #b8e64b; }
+
+    [hidden] { display: none !important; }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">Velo <span>Finds</span></div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
       <a href="#about">About</a>
     </nav>
   </header>
 
   <section class="hero" id="home">
     <h1>Discover Your Next Favourite.</h1>
-    <p>Explore useful gadgets, everyday essentials, fashion finds and products worth discovering. Find something you'll love!</p>
-    <a href="#categories">Explore Our Finds →</a>
+    <p>
+      Explore tech gadgets, fashion accessories, home essentials,
+      beauty picks and lifestyle finds — all in one place.
+    </p>
+    <a href="#products">Explore Products →</a>
   </section>
 
   <main>
     <div class="disclosure">
-      <strong>Affiliate Disclosure:</strong> Velo Finds may earn a commission from qualifying purchases made through affiliate links, at no extra cost to you. We only earn commissions when we participate in an affiliate programme and its conditions are met.
+      <strong>Affiliate Disclosure:</strong>
+      Some links on this website may be affiliate links.
+      If you make a qualifying purchase through them, we may earn
+      a commission at no extra cost to you.
+      <br><br>
+      <strong>As an Amazon Associate I earn from qualifying purchases.</strong>
+      This statement applies once you participate in the Amazon Associates Program.
     </div>
 
-    <h2 class="section-title" id="categories">Explore Popular Categories</h2>
-    <p>Browse our starter collection. Product recommendations and affiliate links will be added soon.</p>
+    <section id="products">
+      <h2>Explore Our Categories</h2>
+      <p>Discover useful ideas for everyday life.</p>
 
-    <div class="products">
-      <article class="card">
-        <div class="emoji">🎧</div>
-        <h3>Tech & Gadgets</h3>
-        <p>Discover practical gadgets and accessories for everyday life.</p>
-        <a href="#about">Explore Finds</a>
-      </article>
-      <article class="card">
-        <div class="emoji">👜</div>
-        <h3>Fashion & Accessories</h3>
-        <p>Find stylish accessories and fashion ideas for every day.</p>
-        <a href="#about">Explore Finds</a>
-      </article>
-      <article class="card">
-        <div class="emoji">🏠</div>
-        <h3>Home & Living</h3>
-        <p>Discover useful items to make your space more comfortable.</p>
-        <a href="#about">Explore Finds</a>
-      </article>
-      <article class="card">
-        <div class="emoji">💪</div>
-        <h3>Fitness & Lifestyle</h3>
-        <p>Explore everyday essentials for an active lifestyle.</p>
-        <a href="#about">Explore Finds</a>
-      </article>
-    </div>
+      <div class="filters" aria-label="Filter products">
+        <button class="active" data-filter="all">All Products</button>
+        <button data-filter="tech">Tech & Gadgets</button>
+        <button data-filter="fashion">Fashion & Accessories</button>
+        <button data-filter="home">Home & Living</button>
+        <button data-filter="beauty">Beauty & Personal Care</button>
+        <button data-filter="fitness">Fitness & Lifestyle</button>
+      </div>
+
+      <div class="products">
+        <article class="card" data-category="tech">
+          <div class="emoji">🎧</div>
+          <div class="category">TECH & GADGETS</div>
+          <h3>Wireless Audio Accessories</h3>
+          <p>Explore audio accessories for music, work and everyday use.</p>
+          <span class="coming">Affiliate link coming soon</span>
+        </article>
+
+        <article class="card" data-category="fashion">
+          <div class="emoji">👜</div>
+          <div class="category">FASHION & ACCESSORIES</div>
+          <h3>Everyday Fashion Bags</h3>
+          <p>Discover bag styles and accessories for different occasions.</p>
+          <span class="coming">Affiliate link coming soon</span>
+        </article>
+
+        <article class="card" data-category="home">
+          <div class="emoji">🏠</div>
+          <div class="category">HOME & LIVING</div>
+          <h3>Smart Home Essentials</h3>
+          <p>Find practical ideas to organise and improve your living space.</p>
+          <span class="coming">Affiliate link coming soon</span>
+        </article>
+
+        <article class="card" data-category="beauty">
+          <div class="emoji">✨</div>
+          <div class="category">BEAUTY & PERSONAL CARE</div>
+          <h3>Daily Care Essentials</h3>
+          <p>Explore personal care tools and everyday beauty accessories.</p>
+          <span class="coming">Affiliate link coming soon</span>
+        </article>
+
+        <article class="card" data-category="fitness">
+          <div class="emoji">💪</div>
+          <div class="category">FITNESS & LIFESTYLE</div>
+          <h3>Fitness Accessories</h3>
+          <p>Discover useful accessories for movement and active living.</p>
+          <span class="coming">Affiliate link coming soon</span>
+        </article>
+      </div>
+
+      <p class="notice">
+        These are sample category cards, not verified product listings.
+        Prices, ratings and product photos will be added after selecting
+        actual products.
+      </p>
+    </section>
 
     <section id="about">
-      <h2 class="section-title">About Velo Finds</h2>
-      <p>Velo Finds helps shoppers discover interesting products across multiple categories. Our goal is to make finding your next favourite product easier.</p>
-      <p class="note">This is a starter website. The categories are examples, not verified product recommendations.</p>
+      <h2>About Velo Finds</h2>
+      <p>
+        Velo Finds helps shoppers discover useful products across
+        multiple categories. Our goal is to make finding your next
+        favourite product simple and enjoyable.
+      </p>
     </section>
   </main>
 
   <footer>
     <p>© 2026 Velo Finds. All rights reserved.</p>
-    <p>Honest recommendations. Smarter discoveries.</p>
-    <a href="privacy-policy.html">Privacy Policy</a> |
+    <p>Some links may earn us a commission from qualifying purchases.</p>
     <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    &nbsp; | &nbsp;
+    <a href="privacy-policy.html">Privacy Policy</a>
   </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const productCards = document.querySelectorAll(".card[data-category]");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+
+        productCards.forEach(card => {
+          card.hidden = selected !== "all" &&
+                        card.dataset.category !== selected;
+        });
+      });
+    });
+  </script>
 </body>
 </html>

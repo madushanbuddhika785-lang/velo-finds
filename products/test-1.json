@@ -1,0 +1,9 @@
+{
+  "name": "Test 1",
+  "category": "tech",
+  "description": "Test 1",
+  "price": "2500",
+  "image": "Test1.com",
+  "affiliate_link": "Test1.com",
+  "featured": true
+}

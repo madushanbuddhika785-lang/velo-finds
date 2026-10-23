@@ -186,45 +186,11 @@
 
       <div class="products">
         <article class="card" data-category="tech">
-          <div class="emoji">🎧</div>
-          <div class="category">TECH & GADGETS</div>
-          <h3>Wireless Audio Accessories</h3>
-          <p>Explore audio accessories for music, work and everyday use.</p>
-          <span class="coming">Affiliate link coming soon</span>
-        </article>
+      
+<div class="products" id="products-grid">
+  <p>Loading products...</p>
+</div>
 
-        <article class="card" data-category="fashion">
-          <div class="emoji">👜</div>
-          <div class="category">FASHION & ACCESSORIES</div>
-          <h3>Everyday Fashion Bags</h3>
-          <p>Discover bag styles and accessories for different occasions.</p>
-          <span class="coming">Affiliate link coming soon</span>
-        </article>
-
-        <article class="card" data-category="home">
-          <div class="emoji">🏠</div>
-          <div class="category">HOME & LIVING</div>
-          <h3>Smart Home Essentials</h3>
-          <p>Find practical ideas to organise and improve your living space.</p>
-          <span class="coming">Affiliate link coming soon</span>
-        </article>
-
-        <article class="card" data-category="beauty">
-          <div class="emoji">✨</div>
-          <div class="category">BEAUTY & PERSONAL CARE</div>
-          <h3>Daily Care Essentials</h3>
-          <p>Explore personal care tools and everyday beauty accessories.</p>
-          <span class="coming">Affiliate link coming soon</span>
-        </article>
-
-        <article class="card" data-category="fitness">
-          <div class="emoji">💪</div>
-          <div class="category">FITNESS & LIFESTYLE</div>
-          <h3>Fitness Accessories</h3>
-          <p>Discover useful accessories for movement and active living.</p>
-          <span class="coming">Affiliate link coming soon</span>
-        </article>
-      </div>
 
       <p class="notice">
         These are sample category cards, not verified product listings.
@@ -268,6 +234,97 @@
         });
       });
     });
-  </script>
+
+<script>
+const productFiles = [
+  "products/test-1.json"
+];
+
+const categoryNames = {
+  tech: "TECH & GADGETS",
+  fashion: "FASHION & ACCESSORIES",
+  home: "HOME & LIVING",
+  beauty: "BEAUTY & PERSONAL CARE",
+  fitness: "FITNESS & LIFESTYLE"
+};
+
+async function loadProducts() {
+  const grid = document.getElementById("products-grid");
+  grid.innerHTML = "<p>Loading products...</p>";
+
+  for (const file of productFiles) {
+    try {
+      const response = await fetch(file);
+      if (!response.ok) continue;
+
+      const p = await response.json();
+      const card = document.createElement("article");
+      card.className = "card";
+      card.dataset.category = p.category || "";
+
+      const category = document.createElement("div");
+      category.className = "category";
+      category.textContent = categoryNames[p.category] || p.category || "";
+
+      const title = document.createElement("h3");
+      title.textContent = p.name || "Product";
+
+      const description = document.createElement("p");
+      description.textContent = p.description || "";
+
+      card.append(category, title, description);
+
+      if (p.image && /^https:\/\//i.test(p.image)) {
+        const img = document.createElement("img");
+        img.src = p.image;
+        img.alt = p.name || "Product image";
+        img.loading = "lazy";
+        img.style.width = "100%";
+        img.style.borderRadius = "8px";
+        card.prepend(img);
+      }
+
+      if (p.price) {
+        const price = document.createElement("p");
+        price.textContent = "Price: " + p.price;
+        card.append(price);
+      }
+
+      let validLink = false;
+      try {
+        const url = new URL(p.affiliate_link);
+        validLink = url.protocol === "https:" &&
+          (url.hostname === "amazon.com" ||
+           url.hostname.endsWith(".amazon.com"));
+      } catch (e) {}
+
+      if (validLink) {
+        const link = document.createElement("a");
+        link.href = p.affiliate_link;
+        link.target = "_blank";
+        link.rel = "sponsored nofollow noopener";
+        link.textContent = "View on Amazon";
+        card.append(link);
+      } else {
+        const note = document.createElement("span");
+        note.className = "coming";
+        note.textContent = "Affiliate link coming soon";
+        card.append(note);
+      }
+
+      grid.append(card);
+    } catch (error) {
+      console.error("Product could not load:", file, error);
+    }
+  }
+
+  if (!grid.querySelector(".card")) {
+    grid.innerHTML = "<p>No products available yet.</p>";
+  }
+}
+
+loadProducts();
+</script>
 </body>
 </html>
+

@@ -1,0 +1,49 @@
+
+media:
+  input: assets
+  output: assets
+
+content:
+  - name: products
+    label: Products
+    type: collection
+    path: products
+    filename: "{primary}.json"
+    format: json
+    fields:
+      - name: name
+        label: Product Name
+        type: string
+        required: true
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - tech
+            - fashion
+            - home
+            - beauty
+            - fitness
+        required: true
+
+      - name: description
+        label: Description
+        type: text
+
+      - name: price
+        label: Price
+        type: string
+
+      - name: image
+        label: Product Image URL
+        type: string
+
+      - name: affiliate_link
+        label: Amazon Affiliate Link
+        type: string
+
+      - name: featured
+        label: Featured Product
+        type: boolean
